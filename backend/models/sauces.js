@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// On crée un modéle JSON pour la sauce
 const sauceSchema = mongoose.Schema({
   userId: { type: String, required: true },
   name: { type: String, required: true },
@@ -8,10 +9,9 @@ const sauceSchema = mongoose.Schema({
   mainPepper: { type: String, required: true },
   imageUrl: { type: String, required: true },
   heat: { type: Number, required: true},
-  likes: { type: Number },
-  dislikes: { type: Number },
-  usersLiked: { type: String },
-  usersDisliked: { type: String },
+  likes: { type: Number, required: false },
+  dislikes: { type: Number, required: false },
+  usersLiked: { type: Array, required: false },
+  usersDisliked: { type: Array, required: false }
 });
-
 module.exports = mongoose.model('sauces', sauceSchema);
