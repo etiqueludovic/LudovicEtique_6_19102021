@@ -14,10 +14,8 @@ Then, clone this repo, `run npm install`, and `run npm install --save-dev run-sc
 
 ## Usage ##
 
-Run `npm start`. This should both run the local server and launch your browser.
+Depuis votre systéme faite "cd frontend" pour accéder au dossier puis "npm start".
 
-If your browser fails to launch, or shows a 404 error, navigate your browser to http://localhost:8080.
+Votre serveur port 3000 sera lancer ainsi que la page index du frontend.
 
-The app should reload automatically when you make a change to a file.
-
-Use `Ctrl+C` in the terminal to stop the local server.
+Vous pouvez utiliser l'application.
