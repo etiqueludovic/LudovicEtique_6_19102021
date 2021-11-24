@@ -4,7 +4,6 @@ const Sauce = require('../models/sauces');
 const fs = require('fs');
 
 // Permet de créer une nouvelle sauce
-
 exports.createSauce = (req, res, next) => {
   // On stocke les données envoyées par le front-end sous forme de form-data dans une variable en les transformant en objet js
   const sauceObject = JSON.parse(req.body.sauce);
@@ -32,6 +31,7 @@ exports.createSauce = (req, res, next) => {
     }));
   };
 
+// get sur une sauce grâce à son ID
 exports.getOneSauce = (req, res, next) => {
   Sauce.findOne({
     _id: req.params.id
@@ -48,6 +48,7 @@ exports.getOneSauce = (req, res, next) => {
   );
 };
 
+// Update des informations de la sauce
 exports.modifySauce = (req, res, next) => {
   const sauceObject = req.file ?
     {
@@ -59,6 +60,7 @@ exports.modifySauce = (req, res, next) => {
     .catch(error => res.status(400).json({ error }));
 };
 
+// Suppression de la sauce
 exports.deleteSauce= (req, res, next) => {
   Sauce.findOne({ _id: req.params.id })
     .then(sauce => {
@@ -72,6 +74,7 @@ exports.deleteSauce= (req, res, next) => {
     .catch(error => res.status(500).json({ error }));
 };
 
+// Get sur les sauces
 exports.getAllSauce = (req, res, next) => {
   Sauce.find().then(
     (Sauces) => {
@@ -86,6 +89,7 @@ exports.getAllSauce = (req, res, next) => {
   );
 };
 
+// Permet de gérer les Likes et dislikes
 exports.likeDislike = (req, res, next) => {
   // Pour la route READ = Ajout/suppression d'un like / dislike à une sauce
   // Like présent dans le body
