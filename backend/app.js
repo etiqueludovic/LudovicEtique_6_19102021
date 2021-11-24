@@ -1,11 +1,12 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
 
+// routes
 const saucesroutes = require('./routes/sauces');
 const userRoutes = require('./routes/user')
 
+// Connection à à la database
 mongoose.connect('mongodb+srv://LogAdmin:L%40g%40adm%2Fn@cluster0.2orhz.mongodb.net/Product?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true })
@@ -21,11 +22,11 @@ app.use((req, res, next) => {
     next();
   });
 
-app.use(bodyParser.json({
+app.use(express.json({
   extended: true
 }));
-
-app.use(bodyParser.urlencoded({
+// on encode l'url avec express à la place de body-parser
+app.use(express.urlencoded({
   extended: true
 }));
 
