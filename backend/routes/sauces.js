@@ -5,6 +5,7 @@ const multer = require('../middleware/multer-config')
 
 const SauceCtrl = require('../controllers/sauces');
 
+// route de la récupération, modification et suppression des données des sauces
 router.get('/', auth, multer, SauceCtrl.getAllSauce);
 router.post('/', auth, multer, SauceCtrl.createSauce);
 router.get('/:id', auth, multer, SauceCtrl.getOneSauce);
