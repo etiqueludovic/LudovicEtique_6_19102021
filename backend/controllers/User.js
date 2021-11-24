@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 
 const User = require('../models/User');
 
-
+// On crée l'utilisateur et on hash son mot de passe
 exports.signup = (req, res, next) => {
     bcrypt.hash(req.body.password, 10)
       .then(hash => {
@@ -17,7 +17,7 @@ exports.signup = (req, res, next) => {
       })
       .catch(error => res.status(500).json({ error }));
   };
-
+  // on vérifie si l'utilisateur et le mot de passe son correct sinon rejet de connexion
   exports.login = (req, res, next) => {
     User.findOne({ email: req.body.email })
       .then(user => {
