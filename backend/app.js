@@ -30,9 +30,8 @@ app.use(express.urlencoded({
   extended: true
 }));
 
-
+// point d'accès
 app.use('/images', express.static(path.join(__dirname, 'images')));
-
 app.use('/api/sauces', saucesroutes);
 app.use('/api/auth', userRoutes)
 
