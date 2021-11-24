@@ -1,6 +1,7 @@
 const http = require('http');
 const app = require('./app');
 
+// Vérifie le port d'écoute
 const normalizePort = val => {
   const port = parseInt(val, 10);
 
@@ -35,6 +36,7 @@ const errorHandler = error => {
   }
 };
 
+// création du serveur
 const server = http.createServer(app);
 
 server.on('error', errorHandler);
@@ -44,4 +46,5 @@ server.on('listening', () => {
   console.log('Listening on ' + bind);
 });
 
+// Ecoute du port
 server.listen(port);
