@@ -48,7 +48,7 @@ exports.getOneSauce = (req, res, next) => {
   );
 };
 
-// Update des informations de la sauce
+// Update des informations de la sauce grâce à son ID
 exports.modifySauce = (req, res, next) => {
   const sauceObject = req.file ?
     {
@@ -74,7 +74,7 @@ exports.deleteSauce= (req, res, next) => {
     .catch(error => res.status(500).json({ error }));
 };
 
-// Get sur les sauces
+// Get sur toutes les sauces
 exports.getAllSauce = (req, res, next) => {
   Sauce.find().then(
     (Sauces) => {
